@@ -1,0 +1,72 @@
+<div class="">
+  <% include navbar %>
+
+</div>
+<style media="screen">
+  .container-f{
+    position: relative;
+    width: 500px;
+    left: 50vw;
+    margin-left: -250px;
+  }
+  .box-f{
+  position: relative;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  }
+  h3{
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>
+<% if(posts.length==0) {%>
+  <h3>No posts yet</h3>
+
+<%}%>
+<div class="container-f">
+  <% for(var i=0; i<posts.length; i++) { %>
+  <div class="w3-container w3-card-2 w3-white w3-round w3-margin box-f"><br>
+    <img src="/images/default-pic.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+    <a href="/<%=posts[i].user%>"><h4><%=posts[i].user%></h4><br></a>
+
+    <hr class="w3-clear">
+    <p><%=posts[i].caption%></p>
+    <% if (posts[i].photo) {%>
+      <img src="<%= posts[i].photo%>" style="width:100%" class="w3-margin-bottom">
+    <% } %>
+  <div class="">
+    <div class="">
+      <strong>        Link:
+      </strong>
+    </div>
+    <div class="">
+      <a href="<%=posts[i].link%>"><%=posts[i].link%></a>
+
+
+    </div>
+    <br>
+    <br>
+    <!-- <% if (posts[i].link) {%>
+      <div class="">
+        <%=posts[i].link%>
+      </div>
+      <div class="">
+        <iframe src="<%=posts[i].link%>">
+      </div>
+    <% } %> -->
+  </div>
+    <div class="">
+      <strong>        Description:
+      </strong>
+    </div>
+    <p><%=posts[i].description%></p>
+    <!-- NOTE:
+    <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+    <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>  -->
+
+  </div>
+  <% } %>
+
+</div>

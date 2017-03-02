@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  </div>
+</div>
+
+<!-- Navbar on small screens -->
+<% include navbar %>
+
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="/images/default-pic.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-male fa-fw w3-margin-right w3-text-theme"></i> <%= user[0].username%></p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <%= user[0].email%></p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>Change profile pic</p>
+
+        </div>
+      </div>
+      <br>
+
+      <!-- Accordion -->
+      <!-- NOTE:<div class="w3-card-2 w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/fjords.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>
+      </div>  -->
+
+      <br>
+
+      <!-- Interests -->
+      <!-- NOTE:
+      <div class="w3-card-2 w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <span class="w3-tag w3-small w3-theme-d2">Games</span>
+            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
+        </div>
+      </div>  -->
+
+      <br>
+
+      <!-- Alert Box -->
+
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <% if(user[0].username==req.session.user) {%>
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Add your work Here</h6>
+              <form class="" action="/createpost" method="post" encType="multipart/form-data">
+                <div class="">
+                  <input type="text" name="caption" value="" placeholder="Title">
+                </div>
+                <br><br>
+                <div class="">
+                  <input type="text" name="user" value="<%= req.session.user %>" hidden='true'>
+                  <input type="text" name="link" value="" placeholder="Link for Repo">
+                </div>
+                <br><br>
+
+                <div class="">
+                  <input type="file" name="photo" value="">
+                </div>
+                <br><br>
+                <div class="">
+                  <textarea name="description" rows="8" cols="80" placeholder="Work description"></textarea>
+                </div>
+                <br><br>
+
+                <div class="">
+                  <button type="submit" class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
+
+                </div>
+              </form>
+
+            </div>
+            <%  }%>
+
+          </div>
+        </div>
+      </div>
+      <% for(var i=0; i<posts.length; i++) { %>
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <img src="/images/default-pic.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <h4><%=posts[i].user%></h4><br>
+        <hr class="w3-clear">
+        <p><%=posts[i].caption%></p>
+        <% if (posts[i].photo) {%>
+          <img src="<%= posts[i].photo%>" style="width:100%" class="w3-margin-bottom">
+        <% } %>
+      <div class="">
+        <div class="">
+          <strong>        Link:
+          </strong>
+        </div>
+        <div class="">
+          <a href="<%=posts[i].link%>"><%=posts[i].link%></a>
+
+
+        </div>
+        <br>
+        <br>
+        <!-- <% if (posts[i].link) {%>
+          <div class="">
+            <%=posts[i].link%>
+          </div>
+          <div class="">
+            <iframe src="<%=posts[i].link%>">
+          </div>
+        <% } %> -->
+      </div>
+        <div class="">
+          <strong>        Description:
+          </strong>
+        </div>
+        <p><%=posts[i].description%></p>
+        <!-- NOTE:
+        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>  -->
+
+      </div>
+      <% } %>
+    <!-- End Middle Column -->
+    </div>
+
+    <!-- Right Column -->
+
+
+  <!-- End Grid -->
+  </div>
+
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+
+
+
+
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
+<!-- NOTE:
+
+Profile
+<% include post/create_post.html %>
+<% for(var i=0; i<posts.length; i++) { %>
+  <% include post/post_detail.html %>
+<% } %>  -->

@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "express-ejs-layouts": "latest",
+    "express-fileupload": "^0.1.1",
+    "express-session": "^1.15.1",
+    "mongodb": "latest",
+    "mongoose": "latest",
+    "passport": "^0.3.2"
+  },
+  "author": "ameniawy",
+  "license": "ISC"
+}

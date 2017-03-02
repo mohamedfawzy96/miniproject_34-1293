@@ -1,0 +1,7 @@
+<form class="" action="/createpost" method="post" encType="multipart/form-data">
+    <input type="text" name="caption" value="">
+    <input type="text" name="user" value="<%= req.session.user %>" hidden='true'>
+    <input type="text" name="link" value="<%= req.session.user %>" hidden='true'>
+    <input type="file" name="photo" value="">
+    <input type="submit" name="" value="Done">
+</form>
