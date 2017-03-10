@@ -13,6 +13,7 @@ var upload = require('express-fileupload');
 require('./models/user')
 require('./models/post')
 
+var uri = 'mongodb://fawzy96:Maso1996@ds127300.mlab.com:27300/test-db';
 
 // converts requests bodys from foo=bar&baz=fluf
 // to {foo:'bar', team:''mean_squad}
@@ -30,7 +31,7 @@ app.set('view engine', 'ejs');
 //app.use(ejsLayouts);
 
 // Connecting to the mongoDB with the DB 'example'
-mongoose.connect('mongodb://localhost:/test-db')
+mongoose.connect(uri)
 
 // ROUTES
 var routes = require('./routes/routes');
