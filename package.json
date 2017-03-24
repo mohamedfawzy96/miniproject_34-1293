@@ -1,11 +1,3 @@
-{
-  "name": "miniproject_34-1293",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "body-parser": "latest",
     "ejs": "latest",
