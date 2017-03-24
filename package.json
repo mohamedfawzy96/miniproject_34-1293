@@ -5,6 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },"repository": {
+  "type": "git",
+  "url": "https://github.com/mohamedfawzy96/miniproject_34-1293.git"
   },
   "dependencies": {
     "body-parser": "latest",
